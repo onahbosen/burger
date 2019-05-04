@@ -2,28 +2,55 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    all: function(cb) {
-        orm.allOrder("burgers", "date, id", function(res) {
+    // Select all burger table entries
+    selectAll: function(cb) {
+        orm.selectAll('burgers', function(res) {
             cb(res);
         });
     },
-    create: function(vals, cb) {
-        orm.create("burgers", ['burger_name'], vals, function(res) {
+
+    // The variables cols and vals are arrays
+    insertOne: function(cols, vals, cb) {
+        orm.insertOne('burgers', cols, vals, function(res) {
             cb(res);
         });
     },
-    update: function(objColVals, condition, cb) {
-        objColVals.date = new Date().toISOString().slice(0, 19).replace('T', ' ');
-        orm.update("burgers", objColVals, condition, function(res) {
-            cb(res);
-        });
-    },
-    delete: function(condition, cb) {
-        orm.delete("burgers", condition, function(res) {
+
+    // The objColVals is an object specifying columns as object keys with associated values
+    updateOne: function(objColVals, condition, cb) {
+        orm.updateOne('burgers', objColVals, condition, function(res) {
             cb(res);
         });
     }
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (burgerController.js).
 module.exports = burger;
+
+
+// var burger = {
+//     all: function(cb) {
+//         orm.allOrder("burgers", "date, id", function(res) {
+//             cb(res);
+//         });
+//     },
+//     create: function(vals, cb) {
+//         orm.create("burgers", ['burger_name'], vals, function(res) {
+//             cb(res);
+//         });
+//     },
+//     update: function(objColVals, condition, cb) {
+//         objColVals.date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+//         orm.update("burgers", objColVals, condition, function(res) {
+//             cb(res);
+//         });
+//     },
+//     delete: function(condition, cb) {
+//         orm.delete("burgers", condition, function(res) {
+//             cb(res);
+//         });
+//     }
+// };
+//
+// // Export the database functions for the controller (catsController.js).
+// module.exports = burger;

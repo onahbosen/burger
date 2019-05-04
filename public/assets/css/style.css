@@ -1,0 +1,19 @@
+body {
+    background-color: #dedfe0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+button {
+    margin: 5px;
+}
+
+textarea {
+    width: 300px;
+}
