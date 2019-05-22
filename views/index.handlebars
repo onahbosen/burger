@@ -1,6 +1,7 @@
 <div class="container">
     <section id="page-name">
-        <iframe src="https://giphy.com/embed/FzTn2m2AGxehi" width="auto" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/3d-food-drink-burger-FzTn2m2AGxehi">via GIPHY</a></p>
+        <iframe src="https://giphy.com/embed/FzTn2m2AGxehi" width="480" height="348" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/3d-food-drink-burger-FzTn2m2AGxehi">via GIPHY</a></p>
+        <h1>eat da burger</h1>
     </section>
 
     <section class="row">
@@ -9,34 +10,27 @@
             <table>
                 {{#each burgers}}
                     {{#unless devoured}}
-                        <tr class="table-row">
-                            <td class="table-first-col">{{id}}. {{burger_name}}</td>
-                            <td><button class="change-devour" data-id="{{id}}">devour it!</button></td>
-                        </tr>
+                        {{> burgers/burger-block}}
                     {{/unless}}
                 {{/each}}
             </table>
         </div>
-        <div class="col-md-4">
+        <div class="md-col-4">
             <form class="create-form">
                 <div class="form-group">
                     <label for="name"></label>
-                    <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="what do you want to eat?"></textarea>
+                    <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
                 </div>
                 <button type="submit">add burger</button>
             </form>
         </div>
         <div class="col-md-4">
             <h1>ate da burger</h1>
-            <table>
-                {{#each burgers}}
-                    {{#if devoured}}
-                        <tr class="table-row">
-                            <td class="table-first-col">{{id}}. {{burger_name}}</td>
-                        </tr>
-                    {{/if}}
-                {{/each}}
-            </table>
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div>{{id}}. {{burger_name}}</div>
+                {{/if}}
+            {{/each}}
         </div>
     </section>
 </div>

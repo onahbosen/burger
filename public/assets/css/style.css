@@ -10,8 +10,9 @@ iframe {
     width: 50%;
 }
 
-button {
-    margin: 5px;
+.change-devour {
+    margin-bottom: 5px;
+    margin-left: 20px;
 }
 
 textarea {
